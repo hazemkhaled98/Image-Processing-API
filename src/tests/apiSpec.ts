@@ -1,3 +1,4 @@
+import path from 'path';
 import supertest from 'supertest';
 import app from '../index';
 
@@ -45,5 +46,19 @@ describe('Test api endpoint responses', () => {
 			)}&height=${Math.floor(Math.random() * 1000)}`
 		);
 		expect(response.status).toBe(201);
+	});
+	it('Returns a processed image upon making a request', async () => {
+		const response = await request.get(
+			'/api?name=ronaldo.jpg&width=700&height=700'
+		);
+		const ImagePath = path.join(
+			__dirname,
+			'..',
+			'assets',
+			'cache',
+			'ronaldo_700_700.jpg'
+		);
+		expect(response.status).toBe(200);
+		expect(ImagePath).toBeTruthy();
 	});
 });
