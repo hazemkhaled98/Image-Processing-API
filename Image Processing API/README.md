@@ -15,12 +15,4 @@ If The image is already processed before, The API sended the cached image otherw
 Finally, The API sends the requested image with width and height set in the url query.  
 
 
-#scripts:
--build: "npx tsc"  
--prettier: "prettier --write 'src/**/*.ts'"  
--lint: "eslint 'src/**/*.ts'"  
--lint-fix: "eslint --fix 'src/**/*.ts'"  
--jasmine: "jasmine"  
--test: "npm run build && npm run jasmine"  
--start: "npm run build && node dist/index.js"  
 
