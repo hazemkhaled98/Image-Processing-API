@@ -30,13 +30,7 @@ const processor = (
 				.resize(res.locals.width, res.locals.height)
 				//location to which the cached image will be saved
 				.toFile(cachePath)
-				.then(() => next())
-				.catch((e) => {
-					res.status(501).send(
-						'Something went wrong while processsing!'
-					);
-					throw `Error: ${e}`;
-				});
+				.then(() => next());
 			//means that image was already processed based on the input and a cached version is present
 			//No processing needed
 		} else {
